@@ -7,7 +7,7 @@ class CSVTimeSeriesFile():
     def get_data(self):
         try:
             file = open(self.name, 'r')
-        except Exception:
+        except:
             raise ExamException('Non è stato possibile aprire il file')
         else:
             ris = []
@@ -74,9 +74,9 @@ def compute_variations(time_series, first_year, last_year):
         diff[str(chiavi[i]) + '-' + str(chiavi[i + 1])] = round(media[chiavi[i + 1]] - media[chiavi[i]], 1)
     return diff
         
-time_series_file = CSVTimeSeriesFile('dati/data.csv')
+time_series_file = CSVTimeSeriesFile('/mnt/c/Users/frame/OneDrive/Desktop/Francesco scuola/Uni/Programmazione/Nenzi/git/dati/data.csv')
 time_series = time_series_file.get_data()
-#print(time_series)
+print(time_series)
 print(compute_variations(time_series, '1949', '1960'))
 
                     
